@@ -1,0 +1,16 @@
+---
+import styles from "./Hero.module.css";
+import type { LanguageCode } from "../../types";
+import { Hero_Text } from "../../constantsText";
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale = "en" } = Astro.props;
+console.log(locale);
+---
+
+<section class={styles.wrapper}>
+  <h1>{Hero_Text.h1Intro[locale]}</h1>
+</section>

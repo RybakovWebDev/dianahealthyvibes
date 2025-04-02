@@ -1,0 +1,12 @@
+---
+import Header from "../../components/Header/Header.astro";
+import Hero from "../../components/Hero/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const locale = "ru";
+---
+
+<Layout title="Диана Гурвич">
+  <Header locale={locale} />
+  <Hero locale={locale} />
+</Layout>

@@ -1,0 +1,23 @@
+---
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher.astro";
+import styles from "./Header.module.css";
+
+interface Props {
+  locale: string;
+}
+
+const { locale = "en" } = Astro.props;
+---
+
+<header class={styles.wrapper}>
+  <div class={styles.container}>
+    <LanguageSwitcher locale={locale} />
+    <nav class={styles.nav}>
+      <ul>
+        <li>About</li>
+        <li>Pricing</li>
+        <li>About</li>
+      </ul>
+    </nav>
+  </div>
+</header>

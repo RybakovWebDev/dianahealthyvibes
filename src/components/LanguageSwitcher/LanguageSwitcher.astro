@@ -1,0 +1,62 @@
+---
+import styles from "./LanguageSwitcher.module.css";
+
+interface Props {
+  locale: string;
+}
+
+const { locale = "en" } = Astro.props;
+const alternateLocale = locale === "en" ? "ru" : "en";
+const currentPath = Astro.url.pathname;
+
+const enUrl = currentPath.replace(/^\/ru\//, "/");
+const ruUrl = currentPath.startsWith("/ru/") ? currentPath : `/ru${currentPath}`;
+---
+
+<div class={styles.languageSwitcher}>
+  <button id="language-toggle" class={styles.toggle}>
+    <span>{locale.toUpperCase()}</span>
+    <svg
+      id="arrow-icon"
+      class={styles.arrow}
+      width="10"
+      height="6"
+      viewBox="0 0 10 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1 1L5 5L9 1"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </button>
+
+  <div id="language-dropdown" class={styles.dropdown}>
+    <a href={enUrl} class={locale === "en" ? styles.active : ""}>EN</a>
+    <a href={ruUrl} class={locale === "ru" ? styles.active : ""}>RU</a>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById("language-toggle");
+  const dropdown = document.getElementById("language-dropdown");
+  const arrow = document.getElementById("arrow-icon");
+
+  if (toggle && dropdown && arrow) {
+    toggle.addEventListener("click", () => {
+      dropdown.classList.toggle("active");
+      arrow.classList.toggle("rotate");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (event) => {
+      if (!toggle.contains(event.target as Node) && !dropdown.contains(event.target as Node)) {
+        dropdown.classList.remove("active");
+        arrow.classList.remove("rotate");
+      }
+    });
+  }
+</script>
