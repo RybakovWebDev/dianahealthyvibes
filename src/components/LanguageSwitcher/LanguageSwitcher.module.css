@@ -3,23 +3,28 @@
   display: inline-block;
 }
 
-.toggle {
+.button {
   display: flex;
   align-items: center;
   gap: 5px;
   background: none;
   border: none;
-  cursor: pointer;
   padding: 8px 12px;
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
+  color: #333;
+}
+
+.button:hover {
+  color: var(--color-accent);
 }
 
 .arrow {
   transition: transform 0.2s ease;
 }
 
-:global(#arrow-icon.rotate) {
+.button[aria-expanded="true"] .arrow {
   transform: rotate(180deg);
 }
 
@@ -30,6 +35,12 @@
   background-color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  z-index: 10;
+  min-width: 80px;
+  padding: 8px 0;
+  margin: 5px 0 0;
+  list-style: none;
+
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -37,9 +48,10 @@
     opacity 0.2s ease,
     transform 0.2s ease,
     visibility 0.2s;
-  z-index: 10;
-  min-width: 80px;
-  padding: 8px 0;
+}
+.dropdown li {
+  margin: 0;
+  padding: 0;
 }
 
 .dropdown a {
@@ -56,13 +68,5 @@
 
 .dropdown a.active {
   font-weight: bold;
-  color: #0066cc;
-}
-
-/* When dropdown is active - either via JS or :focus-within */
-:global(#language-dropdown.active),
-.languageSwitcher:focus-within .dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  color: var(--color-accent);
 }

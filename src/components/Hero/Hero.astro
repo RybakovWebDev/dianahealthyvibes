@@ -12,5 +12,13 @@ console.log(locale);
 ---
 
 <section class={styles.wrapper}>
-  <h1>{Hero_Text.h1Intro[locale]}</h1>
+  <div class={styles.innerWrapper}>
+    <div class={styles.textWrapper}>
+      <h1>{Hero_Text.heroText[locale]}</h1>
+      <h2>{Hero_Text.nameText[locale]}</h2>
+    </div>
+    <div class={styles.imageContainer}>
+      <img src="/images/heroBkg.webp" alt="" class={styles.heroImage} />
+    </div>
+  </div>
 </section>

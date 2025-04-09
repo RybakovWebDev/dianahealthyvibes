@@ -1,9 +1,11 @@
 ---
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher.astro";
 import styles from "./Header.module.css";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher.astro";
+import type { LanguageCode } from "../../types";
+import { navItems } from "../../constantsText";
 
 interface Props {
-  locale: string;
+  locale: LanguageCode;
 }
 
 const { locale = "en" } = Astro.props;
@@ -13,10 +15,14 @@ const { locale = "en" } = Astro.props;
   <div class={styles.container}>
     <LanguageSwitcher locale={locale} />
     <nav class={styles.nav}>
-      <ul>
-        <li>About</li>
-        <li>Pricing</li>
-        <li>About</li>
+      <ul class={styles.navList}>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href}>{item.titles[locale]}</a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </div>

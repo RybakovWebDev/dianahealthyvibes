@@ -6,18 +6,22 @@ interface Props {
 }
 
 const { locale = "en" } = Astro.props;
-const alternateLocale = locale === "en" ? "ru" : "en";
 const currentPath = Astro.url.pathname;
 
 const enUrl = currentPath.replace(/^\/ru\//, "/");
-const ruUrl = currentPath.startsWith("/ru/") ? currentPath : `/ru${currentPath}`;
+const ruUrl = currentPath.startsWith("/ru") ? currentPath : `/ru${currentPath}`;
 ---
 
-<div class={styles.languageSwitcher}>
-  <button id="language-toggle" class={styles.toggle}>
+<div class={styles.languageSwitcher} id="language-switcher">
+  <button
+    type="button"
+    class={styles.button}
+    id="language-button"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+  >
     <span>{locale.toUpperCase()}</span>
     <svg
-      id="arrow-icon"
       class={styles.arrow}
       width="10"
       height="6"
@@ -34,29 +38,57 @@ const ruUrl = currentPath.startsWith("/ru/") ? currentPath : `/ru${currentPath}`
     </svg>
   </button>
 
-  <div id="language-dropdown" class={styles.dropdown}>
-    <a href={enUrl} class={locale === "en" ? styles.active : ""}>EN</a>
-    <a href={ruUrl} class={locale === "ru" ? styles.active : ""}>RU</a>
-  </div>
+  <ul
+    class={styles.dropdown}
+    id="language-dropdown"
+    role="listbox"
+    aria-labelledby="language-button"
+  >
+    <li role="option" aria-selected={locale === "en"}>
+      <a href={enUrl} class={locale === "en" ? styles.active : ""}>EN</a>
+    </li>
+    <li role="option" aria-selected={locale === "ru"}>
+      <a href={ruUrl} class={locale === "ru" ? styles.active : ""}>RU</a>
+    </li>
+  </ul>
 </div>
 
 <script>
-  const toggle = document.getElementById("language-toggle");
+  const button = document.getElementById("language-button");
   const dropdown = document.getElementById("language-dropdown");
-  const arrow = document.getElementById("arrow-icon");
 
-  if (toggle && dropdown && arrow) {
-    toggle.addEventListener("click", () => {
-      dropdown.classList.toggle("active");
-      arrow.classList.toggle("rotate");
+  if (button && dropdown) {
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+
+      if (expanded) {
+        button.setAttribute("aria-expanded", "false");
+        dropdown.classList.remove("dropdown-visible");
+      } else {
+        button.setAttribute("aria-expanded", "true");
+        dropdown.classList.add("dropdown-visible");
+      }
     });
 
-    // Close dropdown when clicking outside
     document.addEventListener("click", (event) => {
-      if (!toggle.contains(event.target as Node) && !dropdown.contains(event.target as Node)) {
-        dropdown.classList.remove("active");
-        arrow.classList.remove("rotate");
+      if (
+        dropdown.classList.contains("dropdown-visible") &&
+        event.target instanceof Node &&
+        !button.contains(event.target) &&
+        !dropdown.contains(event.target)
+      ) {
+        button.setAttribute("aria-expanded", "false");
+        dropdown.classList.remove("dropdown-visible");
       }
     });
   }
 </script>
+
+<style>
+  /* Just add the dropdown-visible class here */
+  .dropdown-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+</style>
