@@ -1,0 +1,29 @@
+---
+import styles from "./ConsultationInvitation.module.css";
+import type { LanguageCode } from "../../types";
+import { ConsultationInvitation_Text } from "../../constantsText";
+import CTAButton from "../CTAButton/CTAButton.astro";
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale = "en" } = Astro.props;
+---
+
+<section class={styles.wrapper}>
+  <div class={styles.innerWrapper}>
+    <h2>{ConsultationInvitation_Text.headline[locale]}!</h2>
+    <ul>
+      {
+        ConsultationInvitation_Text.list.map((l) => {
+          return <li>{l[locale]}</li>;
+        })
+      }
+    </ul>
+    <CTAButton
+      text={ConsultationInvitation_Text.buttonText[locale]}
+      href="https://calendly.com/diana_gurvich/30min"
+    />
+  </div>
+</section>

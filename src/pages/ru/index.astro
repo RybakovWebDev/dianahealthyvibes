@@ -1,7 +1,9 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header/Header.astro";
 import Hero from "../../components/Hero/Hero.astro";
-import Layout from "../../layouts/Layout.astro";
+import CanHelp from "../../components/CanHelp/CanHelp.astro";
+import ConsultationInvitation from "../../components/ConsultationInvitation/ConsultationInvitation.astro";
 
 const locale = "ru";
 ---
@@ -9,4 +11,6 @@ const locale = "ru";
 <Layout title="Диана Гурвич">
   <Header locale={locale} />
   <Hero locale={locale} />
+  <CanHelp locale={locale} />
+  <ConsultationInvitation locale={locale} />
 </Layout>

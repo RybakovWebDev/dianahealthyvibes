@@ -1,0 +1,53 @@
+.wrapper {
+  padding: 4.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.innerWrapper {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5.5rem;
+}
+
+.wrapper h2 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.wrapper ul {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.5rem;
+  row-gap: 3.5rem;
+}
+
+.wrapper li {
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.checkCircle {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkCircle svg {
+  width: 16px;
+  height: 16px;
+  color: white;
+}

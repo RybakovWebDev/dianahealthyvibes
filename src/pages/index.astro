@@ -1,15 +1,18 @@
 ---
-import Header from '../components/Header/Header.astro';
-import Hero from '../components/Hero/Hero.astro';
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header/Header.astro";
+import Hero from "../components/Hero/Hero.astro";
+import CanHelp from "../components/CanHelp/CanHelp.astro";
+import Welcome from "../components/Welcome.astro";
+import ConsultationInvitation from "../components/ConsultationInvitation/ConsultationInvitation.astro";
 
 const locale = Astro.currentLocale || "en";
 ---
 
-<Layout title='Diana Gurvich'>
-	<Header locale={locale}/>
-	<Hero locale={locale}/>
-	<!-- <Welcome /> -->
+<Layout title="Diana Gurvich">
+  <Header locale={locale} />
+  <Hero locale={locale} />
+  <CanHelp locale={locale} />
+  <ConsultationInvitation locale={locale} />
+  <!-- <Welcome /> -->
 </Layout>
