@@ -1,6 +1,6 @@
 .wrapper {
   height: 4rem;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   display: flex;
   justify-content: center;

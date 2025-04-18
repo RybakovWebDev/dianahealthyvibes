@@ -1,0 +1,93 @@
+.wrapper {
+  padding: 4.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.innerWrapper {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.planDescription {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2rem;
+}
+
+.planDescription h2 {
+  font-size: 32px;
+}
+
+.planDescription p {
+  font-size: 22px;
+}
+
+.innerWrapper ul {
+  list-style: none;
+  flex: 2;
+}
+
+.innerWrapper li {
+  border-top: 1px solid var(--color-accent-grey);
+}
+
+.innerWrapper li:last-child {
+  border-bottom: 1px solid var(--color-accent-grey);
+}
+
+.accordionButton {
+  padding: 0 1rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  text-align: left;
+}
+
+.accordionButton:hover {
+  background-color: var(--color-accent-grey);
+}
+
+.accordionButton p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.toggleIcon {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggleIcon svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  transition: transform 0.3s ease;
+}
+
+:global(.active) .toggleIcon svg {
+  transform: rotate(-45deg);
+}
+
+:global(.panel) {
+  padding: 0 1rem;
+  background-color: transparent;
+}
+
+:global(.panel) p {
+  padding: 0 10% 0 0;
+  margin-bottom: 1rem;
+}

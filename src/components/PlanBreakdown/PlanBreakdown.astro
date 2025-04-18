@@ -1,0 +1,105 @@
+---
+import styles from "./PlanBreakdown.module.css";
+import type { LanguageCode } from "../../types";
+import { NutritionSupport_Text } from "../../constantsText";
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale = "en" } = Astro.props;
+---
+
+<section class={styles.wrapper}>
+  <div class={styles.innerWrapper}>
+    <div class={styles.planDescription}>
+      <h2>{NutritionSupport_Text.title[locale]}</h2>
+      <p>{NutritionSupport_Text.subtitle[locale]}</p>
+    </div>
+    <ul>
+      {
+        NutritionSupport_Text.list.map((l, index) => {
+          const headerId = `accordion-header-${index}`;
+          const panelId = `accordion-panel-${index}`;
+
+          return (
+            <li>
+              <h3 id={headerId}>
+                <button
+                  class={`accordion ${styles.accordionButton}`}
+                  id={`accordion-btn-${index}`}
+                  aria-expanded="false"
+                  aria-controls={panelId}
+                  type="button"
+                >
+                  <p>{l.title[locale]}</p>
+                  <span class={styles.toggleIcon} aria-hidden="true">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="12" y1="5" x2="12" y2="19" />
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                  </span>
+                </button>
+              </h3>
+              <div class="panel" id={panelId} role="region" aria-labelledby={headerId}>
+                <p>{l.description[locale]}</p>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .accordion {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  .accordion:focus-visible {
+    outline: 2px solid var(--color-accent);
+  }
+
+  .panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const acc = document.getElementsByClassName("accordion");
+
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function (this: HTMLElement) {
+        this.classList.toggle("active");
+
+        const expanded = this.classList.contains("active");
+        this.setAttribute("aria-expanded", expanded.toString());
+
+        const h3Parent = this.closest("h3");
+        if (h3Parent && h3Parent.nextElementSibling) {
+          const panel = h3Parent.nextElementSibling as HTMLElement;
+
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = "";
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        }
+      });
+    }
+  });
+</script>
