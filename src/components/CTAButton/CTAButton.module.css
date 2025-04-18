@@ -16,5 +16,5 @@
 }
 
 .button:hover {
-  background-color: var(--color-accent-highlight);
+  background-color: var(--color-accent-dark);
 }

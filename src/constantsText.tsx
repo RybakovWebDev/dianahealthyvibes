@@ -191,9 +191,15 @@ export const NutritionSupport_Text = {
     en: "Without Zoom calls",
     ru: "Пакет без звонков в Zoom",
   },
+  costButton: {
+    en: "Book",
+    ru: "Записаться",
+  },
+  costFullNumber: 160,
+  costEconomyNumber: 100,
 };
 
-const trainingPlanWithFeedback_Text = {
+export const TrainingPlanWithFeedback_Text = {
   title: {
     ru: "План тренировок с обратной связью",
     en: "Training plan with feedback",
@@ -280,4 +286,27 @@ const trainingPlanWithFeedback_Text = {
     en: "Fixed plan without feedback",
     ru: "Фиксированный план без обратной связи",
   },
+  costButton: {
+    en: "Book",
+    ru: "Записаться",
+  },
+  costFullNumber: 120,
+  costEconomyNumber: 65,
+};
+
+export const CombinedPlan_Text = {
+  title: {
+    en: "",
+    ru: "Коррекция питания + План тренировок",
+  },
+  description: {
+    en: "",
+    ru: "Получите все преимущества обоих пакетов и начните работать над образом жизни комплексно",
+  },
+  button: {
+    en: "Book",
+    ru: "Записаться",
+  },
+  costFull: 280,
+  costDiscount: 220,
 };

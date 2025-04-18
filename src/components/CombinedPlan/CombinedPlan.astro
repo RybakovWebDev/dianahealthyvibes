@@ -1,0 +1,27 @@
+---
+import styles from "./CombinedPlan.module.css";
+import type { LanguageCode } from "../../types";
+
+import CTAButton from "../CTAButton/CTAButton.astro";
+
+interface Props {
+  locale: LanguageCode;
+  title: Record<LanguageCode, string>;
+  description: Record<LanguageCode, string>;
+  button: Record<LanguageCode, string>;
+  costFull: number;
+  costDiscount: number;
+}
+
+const { locale = "en", title, description, button, costFull, costDiscount } = Astro.props;
+---
+
+<section class={styles.wrapper}>
+  <div class={styles.innerWrapper}>
+    <h2>{title[locale]}</h2>
+    <span class={styles.costFull}>${costFull}</span>
+    <span class={styles.costDiscount}>${costDiscount}</span>
+    <h3>{description[locale]}</h3>
+    <CTAButton text={button[locale]} href="https://t.me/di_gurrr" />
+  </div>
+</section>

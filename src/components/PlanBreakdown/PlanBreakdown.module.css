@@ -1,7 +1,11 @@
 .wrapper {
-  padding: 4.5rem 0;
+  padding: 2.5rem 0;
   display: flex;
   justify-content: center;
+}
+
+.accentBackground {
+  background-color: var(--color-background-accent);
 }
 
 .innerWrapper {
@@ -35,11 +39,11 @@
 }
 
 .innerWrapper li {
-  border-top: 1px solid var(--color-accent-grey);
+  border-top: 1px solid var(--color-accent-light);
 }
 
 .innerWrapper li:last-child {
-  border-bottom: 1px solid var(--color-accent-grey);
+  border-bottom: 1px solid var(--color-accent-light);
 }
 
 .accordionButton {

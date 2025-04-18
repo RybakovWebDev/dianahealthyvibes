@@ -1,24 +1,32 @@
 ---
 import styles from "./PlanBreakdown.module.css";
 import type { LanguageCode } from "../../types";
-import { NutritionSupport_Text } from "../../constantsText";
+
+interface PlanItem {
+  title: Record<LanguageCode, string>;
+  description: Record<LanguageCode, string>;
+}
 
 interface Props {
   locale: LanguageCode;
+  accentBackground?: boolean;
+  title: Record<LanguageCode, string>;
+  subtitle: Record<LanguageCode, string>;
+  list: PlanItem[];
 }
 
-const { locale = "en" } = Astro.props;
+const { locale = "en", accentBackground = false, title, subtitle, list } = Astro.props;
 ---
 
-<section class={styles.wrapper}>
+<section class={`${styles.wrapper} ${accentBackground ? styles.accentBackground : ""}`}>
   <div class={styles.innerWrapper}>
     <div class={styles.planDescription}>
-      <h2>{NutritionSupport_Text.title[locale]}</h2>
-      <p>{NutritionSupport_Text.subtitle[locale]}</p>
+      <h2>{title[locale]}</h2>
+      <p>{subtitle[locale]}</p>
     </div>
     <ul>
       {
-        NutritionSupport_Text.list.map((l, index) => {
+        list.map((item, index) => {
           const headerId = `accordion-header-${index}`;
           const panelId = `accordion-panel-${index}`;
 
@@ -32,7 +40,7 @@ const { locale = "en" } = Astro.props;
                   aria-controls={panelId}
                   type="button"
                 >
-                  <p>{l.title[locale]}</p>
+                  <p>{item.title[locale]}</p>
                   <span class={styles.toggleIcon} aria-hidden="true">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +57,7 @@ const { locale = "en" } = Astro.props;
                 </button>
               </h3>
               <div class="panel" id={panelId} role="region" aria-labelledby={headerId}>
-                <p>{l.description[locale]}</p>
+                <p>{item.description[locale]}</p>
               </div>
             </li>
           );

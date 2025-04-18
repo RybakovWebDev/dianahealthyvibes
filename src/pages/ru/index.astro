@@ -5,6 +5,14 @@ import Hero from "../../components/Hero/Hero.astro";
 import CanHelp from "../../components/CanHelp/CanHelp.astro";
 import ConsultationInvitation from "../../components/ConsultationInvitation/ConsultationInvitation.astro";
 import PlanBreakdown from "../../components/PlanBreakdown/PlanBreakdown.astro";
+import CostBreakdown from "../../components/CostBreakdown/CostBreakdown.astro";
+import CombinedPlan from "../../components/CombinedPlan/CombinedPlan.astro";
+
+import {
+  CombinedPlan_Text,
+  NutritionSupport_Text,
+  TrainingPlanWithFeedback_Text,
+} from "../../constantsText";
 
 const locale = "ru";
 ---
@@ -14,5 +22,46 @@ const locale = "ru";
   <Hero locale={locale} />
   <CanHelp locale={locale} />
   <ConsultationInvitation locale={locale} />
-  <PlanBreakdown locale={locale} />
+  <PlanBreakdown
+    locale={locale}
+    title={NutritionSupport_Text.title}
+    subtitle={NutritionSupport_Text.subtitle}
+    list={NutritionSupport_Text.list}
+  />
+  <CostBreakdown
+    locale={locale}
+    costTitle={NutritionSupport_Text.costTitle}
+    costDescription={NutritionSupport_Text.costDescription}
+    costFullNumber={NutritionSupport_Text.costFullNumber}
+    costEconomyNumber={NutritionSupport_Text.costEconomyNumber}
+    costFullPriceTitle={NutritionSupport_Text.costFullPriceTitle}
+    costEconomyPriceTitle={NutritionSupport_Text.costEconomyPriceTitle}
+    costButton={NutritionSupport_Text.costButton}
+  />
+  <PlanBreakdown
+    locale={locale}
+    accentBackground={true}
+    title={TrainingPlanWithFeedback_Text.title}
+    subtitle={TrainingPlanWithFeedback_Text.subtitle}
+    list={TrainingPlanWithFeedback_Text.list}
+  />
+  <CostBreakdown
+    locale={locale}
+    accentBackground={true}
+    costTitle={TrainingPlanWithFeedback_Text.costTitle}
+    costDescription={TrainingPlanWithFeedback_Text.costDescription}
+    costFullNumber={TrainingPlanWithFeedback_Text.costFullNumber}
+    costEconomyNumber={TrainingPlanWithFeedback_Text.costEconomyNumber}
+    costFullPriceTitle={TrainingPlanWithFeedback_Text.costFullPriceTitle}
+    costEconomyPriceTitle={TrainingPlanWithFeedback_Text.costEconomyPriceTitle}
+    costButton={TrainingPlanWithFeedback_Text.costButton}
+  />
+  <CombinedPlan
+    locale={locale}
+    title={CombinedPlan_Text.title}
+    description={CombinedPlan_Text.description}
+    costFull={CombinedPlan_Text.costFull}
+    costDiscount={CombinedPlan_Text.costDiscount}
+    button={CombinedPlan_Text.button}
+  />
 </Layout>

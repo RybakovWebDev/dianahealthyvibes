@@ -1,0 +1,49 @@
+---
+import styles from "./CostBreakdown.module.css";
+import type { LanguageCode } from "../../types";
+
+import CTAButton from "../CTAButton/CTAButton.astro";
+
+interface Props {
+  locale: LanguageCode;
+  accentBackground?: boolean;
+  costTitle: Record<LanguageCode, string>;
+  costDescription: Record<LanguageCode, string>;
+  costFullNumber: number;
+  costEconomyNumber: number;
+  costFullPriceTitle: Record<LanguageCode, string>;
+  costEconomyPriceTitle: Record<LanguageCode, string>;
+  costButton: Record<LanguageCode, string>;
+}
+
+const {
+  locale = "en",
+  accentBackground = false,
+  costTitle,
+  costDescription,
+  costFullPriceTitle,
+  costEconomyPriceTitle,
+  costFullNumber,
+  costEconomyNumber,
+  costButton,
+} = Astro.props;
+---
+
+<section class={`${styles.wrapper} ${accentBackground ? styles.accentBackground : ""}`}>
+  <div class={styles.innerWrapper}>
+    <h2>{costTitle[locale]}</h2>
+    <p class={styles.description}>{costDescription[locale]}</p>
+    <div class={styles.packagesOuterWrapper}>
+      <div class={styles.packageWrapper}>
+        <h3>${costFullNumber}</h3>
+        <p>{costFullPriceTitle[locale]}</p>
+        <CTAButton text={costButton[locale]} href="https://t.me/di_gurrr" />
+      </div>
+      <div class={styles.packageWrapper}>
+        <h3>${costEconomyNumber}</h3>
+        <p>{costEconomyPriceTitle[locale]}</p>
+        <CTAButton text={costButton[locale]} href="https://t.me/di_gurrr" />
+      </div>
+    </div>
+  </div>
+</section>

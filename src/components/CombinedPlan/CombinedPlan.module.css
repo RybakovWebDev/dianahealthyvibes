@@ -1,0 +1,24 @@
+.wrapper {
+  padding: 3.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.innerWrapper {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.innerWrapper h2 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.innerWrapper h3 {
+  font-size: 28px;
+  font-weight: 400;
+}
