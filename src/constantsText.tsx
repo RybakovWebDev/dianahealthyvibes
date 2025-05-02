@@ -180,9 +180,10 @@ export const NutritionSupport_Text = {
     ru: "Стоимость",
   },
   costDescription: {
-    en: "",
+    en: "If you prefer to work independently but need a clear plan and guidance, the option without Zoom calls is a good fit.",
     ru: "Если вы предпочитаете работать самостоятельно, но вам нужен чёткий план и рекомендации, вам подойдет опция без звонков в Zoom.",
   },
+
   costFullPriceTitle: {
     en: "Full package",
     ru: "Полный пакет",
@@ -275,9 +276,10 @@ export const TrainingPlanWithFeedback_Text = {
     ru: "Стоимость",
   },
   costDescription: {
-    en: "",
+    en: "If you need a fixed 1-month plan without Telegram support and technique correction, the no-feedback option is a good fit.",
     ru: "Если вам нужен фиксированный план на 1 месяц без поддержки в Телеграм и корректировки техники, вам подойдет опция без обратной связи.",
   },
+
   costFullPriceTitle: {
     en: "Full package",
     ru: "Полный пакет",
@@ -296,11 +298,11 @@ export const TrainingPlanWithFeedback_Text = {
 
 export const CombinedPlan_Text = {
   title: {
-    en: "",
+    en: "Nutrition Correction + Training Plan",
     ru: "Коррекция питания + План тренировок",
   },
   description: {
-    en: "",
+    en: "Get all the benefits of both packages and start working on your lifestyle in a holistic way.",
     ru: "Получите все преимущества обоих пакетов и начните работать над образом жизни комплексно",
   },
   button: {
@@ -309,4 +311,236 @@ export const CombinedPlan_Text = {
   },
   costFull: 280,
   costDiscount: 220,
+};
+
+export const SupportPlanSteps_Text = {
+  headline: {
+    en: "How does the support process work?",
+    ru: "Как проходит сопровождение?",
+  },
+  list: [
+    {
+      title: {
+        en: "Fill out a form",
+        ru: "Заполняем анкету",
+      },
+      description: {
+        en: "Before the first consultation, I’ll send a form to help us stay focused on your goals.",
+        ru: "Перед первой консультацией пришлю анкету, чтобы держать наши задачи в фокусе",
+      },
+    },
+    {
+      title: {
+        en: "Set a goal",
+        ru: "Ставим цель",
+      },
+      description: {
+        en: "We’ll set a goal using the SMART method to ensure we reach it precisely.",
+        ru: "Поставим цель по SMART-методу, чтобы точно-точно к ней прийти",
+      },
+    },
+    {
+      title: {
+        en: "Create a plan",
+        ru: "Составляем план",
+      },
+      description: {
+        en: "A nutrition and activity plan will help evenly distribute the load.",
+        ru: "План питания и активности поможет равномерно распределить нагрузку",
+      },
+    },
+    {
+      title: {
+        en: "Weekly calls",
+        ru: "Созваниваемся раз в неделю",
+      },
+      description: {
+        en: "In a 60-minute call, we’ll go over your questions and set tasks for the week. There will also be homework (only available in the 'Nutrition & Lifestyle Correction' plan).",
+        ru: 'За 60 минут мы разбираем ваши вопросы и ставим задачу на неделю. А еще будут домашние задания (доступно только в пакете "Коррекция питания и образа жизни")',
+      },
+    },
+    {
+      title: {
+        en: "Analyze progress",
+        ru: "Анализируем результаты",
+      },
+      description: {
+        en: "We’ll analyze how your habits change from week to week.",
+        ru: "Проанализируем, как меняются ваши привычки от недели к неделе",
+      },
+    },
+    {
+      title: {
+        en: "Chat in Telegram daily",
+        ru: "Общаемся в Телеграм-чате ежедневно",
+      },
+      description: {
+        en: "Throughout the support period, I’ll answer your questions and help you stay on track.",
+        ru: "На протяжении сопровождения, отвечаю на вопросы и помогаю не отходить от плана",
+      },
+    },
+  ],
+};
+
+export const OnlineZoomWorkouts_Text = {
+  title: {
+    en: "Online Zoom Workouts",
+    ru: "Онлайн-тренировки в Zoom",
+  },
+  subtitle: {
+    en: "What to expect?",
+    ru: "Что вас ждет?",
+  },
+  list: [
+    {
+      title: {
+        en: "Workout Plan",
+        ru: "План тренировок",
+      },
+      subList: [
+        {
+          en: "A personalized workout plan for the gym or home",
+          ru: "Разработка индивидуального плана тренировок для зала или дома",
+        },
+        {
+          en: "Based on your goals (weight loss, muscle gain, endurance)",
+          ru: "Учёт целей клиента (коррекция веса, набор мышечной массы, выносливость)",
+        },
+        {
+          en: "Tailored to your schedule and fitness level",
+          ru: "Программа, адаптированная к вашему графику и уровню физической подготовки",
+        },
+      ],
+    },
+    {
+      title: {
+        en: "Technique coaching and monitoring",
+        ru: "Постановка и контроль техники",
+      },
+      subList: [
+        {
+          en: "Learn the correct technique for exercises",
+          ru: "Обучение правильной технике выполнения упражнений",
+        },
+        { en: "Fix mistakes to avoid injury", ru: "Исправление ошибок, чтобы избежать травм" },
+        {
+          en: "Video analysis of your technique (for online clients)",
+          ru: "Видео-анализ техники (для онлайн-клиентов)",
+        },
+      ],
+    },
+    {
+      title: {
+        en: "Program adjustments as you progress",
+        ru: "Корректировка программы по мере прогресса",
+      },
+      subList: [
+        {
+          en: "Regular updates to your plan based on your progress",
+          ru: "Регулярные изменения программы в зависимости от вашего прогресса",
+        },
+        {
+          en: "Adjustments to load depending on your condition and goals",
+          ru: "Увеличение или снижение нагрузки в зависимости от состояния и целей",
+        },
+        { en: "Recovery and rest recommendations", ru: "Советы по восстановлению и отдыху" },
+      ],
+    },
+    {
+      title: {
+        en: "Support and motivation",
+        ru: "Поддержка и мотивация",
+      },
+      subList: [
+        {
+          en: "Support through your preferred messenger (Telegram, WhatsApp)",
+          ru: "Поддержка в удобном для вас мессенджере (Telegram, WhatsApp)",
+        },
+      ],
+    },
+    {
+      title: {
+        en: "Access to educational materials",
+        ru: "Доступ к обучающим материалам",
+      },
+      subList: [{ en: "Video lessons, guides, and articles", ru: "Видео-уроки, гайды и статьи" }],
+    },
+  ],
+  costTitle: {
+    en: "Cost",
+    ru: "Стоимость",
+  },
+  costLength: {
+    en: "min",
+    ru: "мин",
+  },
+  costOptionsList: [
+    {
+      title: {
+        en: "One-time session (home or gym)",
+        ru: "Разовое занятие (дома или в зале)",
+      },
+      price: 35,
+    },
+    {
+      title: {
+        en: "8-session package",
+        ru: "Абонемент на 8 занятий",
+      },
+      price: 200,
+    },
+  ],
+  costButton: {
+    en: "Book",
+    ru: "Записаться",
+  },
+};
+
+export const WhyMe_Text = {
+  title: {
+    en: "",
+    ru: "Почему клиенты доверяют именно мне?",
+  },
+  list: [
+    {
+      title: {
+        en: "",
+        ru: "Была на вашем месте",
+      },
+      description: {
+        en: "",
+        ru: "Я знаю не понаслышке, что такое расстройство пищевого поведения. Несколько лет я жила с нервной булимией. После того как я справилась с недугом, хочу помочь другим не впасть в РПП из-за рекомендаций горе-специалистов.",
+      },
+    },
+    {
+      title: {
+        en: "",
+        ru: "Научный подход",
+      },
+      description: {
+        en: "",
+        ru: "С самого начала фитнес-пути я сталкивалась с мракобесными советами по питанию от тренеров. Моя задача — помочь вам разобраться в потоке информации. Все мои рекомендации основаны на доказательной медицине и научных исследованиях.",
+      },
+    },
+    {
+      title: {
+        en: "",
+        ru: "Системная работа",
+      },
+      description: {
+        en: "",
+        ru: "Моя задача — улучшить качество вашей жизни не только через сбалансированное питание, но и через физическую активность, стресс менеджмент и гармонию в отношениях с окружающими.",
+      },
+    },
+    {
+      title: {
+        en: "",
+        ru: "Никаких диет и запретов",
+      },
+      description: {
+        en: "",
+        ru: "Я работаю в недиетическом подходе. Питание и тренировки должны приносить удовольствие, только тогда будет долгосрочный результат.",
+      },
+    },
+  ],
 };

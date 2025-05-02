@@ -1,0 +1,35 @@
+---
+import styles from "./WhyMe.module.css";
+import type { LanguageCode } from "../../types";
+import { WhyMe_Text } from "../../constantsText";
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale = "en" } = Astro.props;
+---
+
+<section class={styles.wrapper}>
+  <div class={styles.innerWrapper}>
+    <!-- <img src="/public/images/whyme.webp" alt="Diana behind a laptop" /> -->
+    <div class={styles.infoWrapper}>
+      <h2>{WhyMe_Text.title[locale]}</h2>
+      <ul>
+        {
+          WhyMe_Text.list.map((l, i) => {
+            return (
+              <li>
+                <span class={styles.checkCircle}>{i + 1}</span>
+                <div class={styles.textWrapper}>
+                  <h3>{l.title[locale]}</h3>
+                  <p>{l.description[locale]}</p>
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
+</section>

@@ -7,10 +7,14 @@ import ConsultationInvitation from "../../components/ConsultationInvitation/Cons
 import PlanBreakdown from "../../components/PlanBreakdown/PlanBreakdown.astro";
 import CostBreakdown from "../../components/CostBreakdown/CostBreakdown.astro";
 import CombinedPlan from "../../components/CombinedPlan/CombinedPlan.astro";
+import SupportPlanSteps from "../../components/SupportPlanSteps/SupportPlanSteps.astro";
+import PlanBreakdownZoom from "../../components/PlanBreakdownZoom.astro/PlanBreakdownZoom.astro";
+import WhyMe from "../../components/WhyMe/WhyMe.astro";
 
 import {
   CombinedPlan_Text,
   NutritionSupport_Text,
+  OnlineZoomWorkouts_Text,
   TrainingPlanWithFeedback_Text,
 } from "../../constantsText";
 
@@ -64,4 +68,17 @@ const locale = "ru";
     costDiscount={CombinedPlan_Text.costDiscount}
     button={CombinedPlan_Text.button}
   />
+  <SupportPlanSteps locale={locale} />
+  <PlanBreakdownZoom
+    locale={locale}
+    accentBackground={true}
+    title={OnlineZoomWorkouts_Text.title}
+    subtitle={OnlineZoomWorkouts_Text.subtitle}
+    list={OnlineZoomWorkouts_Text.list}
+    costTitle={OnlineZoomWorkouts_Text.costTitle}
+    costLength={OnlineZoomWorkouts_Text.costLength}
+    costButton={OnlineZoomWorkouts_Text.costButton}
+    costOptionsList={OnlineZoomWorkouts_Text.costOptionsList}
+  />
+  <WhyMe locale={locale} />
 </Layout>

@@ -7,9 +7,17 @@ import ConsultationInvitation from "../components/ConsultationInvitation/Consult
 import PlanBreakdown from "../components/PlanBreakdown/PlanBreakdown.astro";
 import CostBreakdown from "../components/CostBreakdown/CostBreakdown.astro";
 import CombinedPlan from "../components/CombinedPlan/CombinedPlan.astro";
+import SupportPlanSteps from "../components/SupportPlanSteps/SupportPlanSteps.astro";
+import PlanBreakdownZoom from "../components/PlanBreakdownZoom.astro/PlanBreakdownZoom.astro";
+import WhyMe from "../components/WhyMe/WhyMe.astro";
 import Welcome from "../components/Welcome.astro";
 
-import { CombinedPlan_Text, NutritionSupport_Text } from "../constantsText";
+import {
+  CombinedPlan_Text,
+  NutritionSupport_Text,
+  OnlineZoomWorkouts_Text,
+  TrainingPlanWithFeedback_Text,
+} from "../constantsText";
 
 const locale = Astro.currentLocale || "en";
 ---
@@ -35,6 +43,24 @@ const locale = Astro.currentLocale || "en";
     costEconomyPriceTitle={NutritionSupport_Text.costEconomyPriceTitle}
     costButton={NutritionSupport_Text.costButton}
   />
+  <PlanBreakdown
+    locale={locale}
+    accentBackground={true}
+    title={TrainingPlanWithFeedback_Text.title}
+    subtitle={TrainingPlanWithFeedback_Text.subtitle}
+    list={TrainingPlanWithFeedback_Text.list}
+  />
+  <CostBreakdown
+    locale={locale}
+    accentBackground={true}
+    costTitle={TrainingPlanWithFeedback_Text.costTitle}
+    costDescription={TrainingPlanWithFeedback_Text.costDescription}
+    costFullNumber={TrainingPlanWithFeedback_Text.costFullNumber}
+    costEconomyNumber={TrainingPlanWithFeedback_Text.costEconomyNumber}
+    costFullPriceTitle={TrainingPlanWithFeedback_Text.costFullPriceTitle}
+    costEconomyPriceTitle={TrainingPlanWithFeedback_Text.costEconomyPriceTitle}
+    costButton={TrainingPlanWithFeedback_Text.costButton}
+  />
   <CombinedPlan
     locale={locale}
     title={CombinedPlan_Text.title}
@@ -43,5 +69,18 @@ const locale = Astro.currentLocale || "en";
     costDiscount={CombinedPlan_Text.costDiscount}
     button={CombinedPlan_Text.button}
   />
+  <SupportPlanSteps locale={locale} />
+  <PlanBreakdownZoom
+    locale={locale}
+    accentBackground={true}
+    title={OnlineZoomWorkouts_Text.title}
+    subtitle={OnlineZoomWorkouts_Text.subtitle}
+    list={OnlineZoomWorkouts_Text.list}
+    costTitle={OnlineZoomWorkouts_Text.costTitle}
+    costLength={OnlineZoomWorkouts_Text.costLength}
+    costButton={OnlineZoomWorkouts_Text.costButton}
+    costOptionsList={OnlineZoomWorkouts_Text.costOptionsList}
+  />
+  <WhyMe locale={locale} />
   <!-- <Welcome /> -->
 </Layout>

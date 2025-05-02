@@ -1,0 +1,134 @@
+---
+import styles from "./PlanBreakdownZoom.module.css";
+import type { LanguageCode } from "../../types";
+import CTAButton from "../CTAButton/CTAButton.astro";
+
+interface PlanItemSubList {
+  [key: string]: string;
+}
+
+interface PlanItem {
+  title: Record<LanguageCode, string>;
+  subList: PlanItemSubList[];
+}
+
+interface CostListItem {
+  title: Record<LanguageCode, string>;
+  price: number;
+}
+
+interface Props {
+  locale: LanguageCode;
+  accentBackground?: boolean;
+  title: Record<LanguageCode, string>;
+  subtitle: Record<LanguageCode, string>;
+  list: PlanItem[];
+  costTitle: Record<LanguageCode, string>;
+  costLength: Record<LanguageCode, string>;
+  costOptionsList: CostListItem[];
+  costButton: Record<LanguageCode, string>;
+}
+
+const {
+  locale = "en",
+  accentBackground = false,
+  title,
+  subtitle,
+  list,
+  costTitle,
+  costLength,
+  costButton,
+  costOptionsList,
+} = Astro.props;
+---
+
+<section class={`${styles.wrapper} ${accentBackground ? styles.accentBackground : ""}`}>
+  <div class={styles.innerWrapper}>
+    <h2 class={styles.title}>{title[locale]}</h2>
+    <div class={styles.planWrapper}>
+      <div class={styles.planDescription}>
+        <p>{subtitle[locale]}</p>
+      </div>
+      <ul class={styles.mainList}>
+        {
+          list.map((item, index) => {
+            const headerId = `accordion-header-${index}`;
+            const panelId = `accordion-panel-${index}`;
+
+            return (
+              <li class={styles.mainListItem}>
+                <h3 id={headerId}>
+                  <button
+                    class={`accordion ${styles.accordionButton}`}
+                    id={`accordion-btn-${index}`}
+                    aria-expanded="false"
+                    aria-controls={panelId}
+                    type="button"
+                  >
+                    <h4>{item.title[locale]}</h4>
+                    <span class={styles.toggleIcon} aria-hidden="true">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+                <div class="panel" id={panelId} role="region" aria-labelledby={headerId}>
+                  <ul class={styles.subList}>
+                    {item.subList.map((subItem) => (
+                      <li>{subItem[locale]}</li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+    <div class={styles.costWrapper}>
+      <h3>{costTitle[locale]}</h3>
+      <span class={styles.costDuration}>60 {costLength[locale]}</span>
+      <ul>
+        {
+          costOptionsList.map((item) => {
+            return (
+              <li>
+                <span>{item.title[locale]}</span>
+                <span>${item.price}</span>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <CTAButton text={costButton[locale]} href="https://t.me/di_gurrr" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .accordion {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  .accordion:focus-visible {
+    outline: 2px solid var(--color-accent);
+  }
+
+  .panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+</style>

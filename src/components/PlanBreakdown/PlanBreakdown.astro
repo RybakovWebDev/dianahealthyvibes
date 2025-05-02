@@ -24,14 +24,14 @@ const { locale = "en", accentBackground = false, title, subtitle, list } = Astro
       <h2>{title[locale]}</h2>
       <p>{subtitle[locale]}</p>
     </div>
-    <ul>
+    <ul class={styles.mainList}>
       {
         list.map((item, index) => {
           const headerId = `accordion-header-${index}`;
           const panelId = `accordion-panel-${index}`;
 
           return (
-            <li>
+            <li class={styles.mainListItem}>
               <h3 id={headerId}>
                 <button
                   class={`accordion ${styles.accordionButton}`}
@@ -40,7 +40,7 @@ const { locale = "en", accentBackground = false, title, subtitle, list } = Astro
                   aria-controls={panelId}
                   type="button"
                 >
-                  <p>{item.title[locale]}</p>
+                  <h4>{item.title[locale]}</h4>
                   <span class={styles.toggleIcon} aria-hidden="true">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +93,6 @@ const { locale = "en", accentBackground = false, title, subtitle, list } = Astro
     for (let i = 0; i < acc.length; i++) {
       acc[i].addEventListener("click", function (this: HTMLElement) {
         this.classList.toggle("active");
-
         const expanded = this.classList.contains("active");
         this.setAttribute("aria-expanded", expanded.toString());
 

@@ -1,0 +1,32 @@
+---
+import styles from "./SupportPlanSteps.module.css";
+import type { LanguageCode } from "../../types";
+import { SupportPlanSteps_Text } from "../../constantsText";
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale = "en" } = Astro.props;
+---
+
+<section class={styles.wrapper}>
+  <div class={styles.innerWrapper}>
+    <h2>{SupportPlanSteps_Text.headline[locale]}</h2>
+    <ul>
+      {
+        SupportPlanSteps_Text.list.map((l, i) => {
+          return (
+            <li>
+              <span class={styles.checkCircle}>{i + 1}</span>
+              <div class={styles.textWrapper}>
+                <h3>{l.title[locale]}</h3>
+                <p>{l.description[locale]}</p>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>

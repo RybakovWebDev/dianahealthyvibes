@@ -1,0 +1,57 @@
+.wrapper {
+  padding: 4rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.innerWrapper {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5.5rem;
+}
+
+.wrapper h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.wrapper ul {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 2.5rem;
+  row-gap: 3.5rem;
+}
+
+.wrapper li {
+  display: flex;
+  gap: 1rem;
+}
+
+.checkCircle {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
+  font-size: 20px;
+}
+
+.textWrapper h3 {
+  margin: 0 0 1rem 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.textWrapper p {
+  font-size: 18px;
+}
