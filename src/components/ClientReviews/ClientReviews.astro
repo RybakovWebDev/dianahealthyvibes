@@ -1,0 +1,123 @@
+---
+import styles from "./ClientReviews.module.css";
+import type { LanguageCode } from "../../types";
+
+import { ClientReviews_Text } from "../../constantsText";
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale = "en" } = Astro.props;
+---
+
+<section id="reviews" class={styles.wrapper}>
+  <div class={styles.innerWrapper}>
+    <h2>{ClientReviews_Text.title[locale]}</h2>
+
+    <div class="embla-carousel" tabindex="0" role="region" aria-label="Client reviews">
+      <ul class="embla-container">
+        {
+          ClientReviews_Text.list.map((review, index) => (
+            <li
+              class="embla-slide"
+              tabindex="0"
+              role="tabpanel"
+              aria-label={`Review ${index + 1} of ${ClientReviews_Text.list.length}`}
+            >
+              <div class={styles.review}>
+                <h3>{review.title[locale]}</h3>
+                {review.text && (
+                  <div class={styles.reviewText}>
+                    {review.text[locale].split("${(<br />)}").map((paragraph) => (
+                      <p>{paragraph}</p>
+                    ))}
+                  </div>
+                )}
+                {review.textList && (
+                  <ul class={styles.reviewList}>
+                    {review.textList.map((item, i) => (
+                      <li>{item[locale]}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .embla-carousel {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .embla-container {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style: none;
+  }
+
+  .embla-slide {
+    padding: 0 1.5rem;
+    margin: 0 3vw;
+    min-width: 0;
+    max-width: 47rem;
+    flex: 0 0 auto;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .embla-slide {
+      padding: 0 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+  import type { EmblaOptionsType } from "embla-carousel";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const emblaNode = document.querySelector(".embla-carousel") as HTMLElement;
+    if (!emblaNode) return;
+
+    const options: EmblaOptionsType = {
+      loop: true,
+      align: "center",
+      containScroll: false,
+      skipSnaps: false,
+      watchFocus: true,
+    };
+
+    const emblaApi = EmblaCarousel(emblaNode, options);
+
+    const makeReviewsClickable = () => {
+      const slides = document.querySelectorAll(".embla-slide");
+      slides.forEach((slide, index) => {
+        slide.addEventListener("click", () => {
+          emblaApi.scrollTo(index);
+        });
+      });
+    };
+
+    makeReviewsClickable();
+
+    emblaNode.onkeydown = (event) => {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        emblaApi.scrollNext();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        emblaApi.scrollPrev();
+      }
+    };
+  });
+</script>

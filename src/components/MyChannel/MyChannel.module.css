@@ -1,0 +1,47 @@
+.wrapper {
+  padding: 4.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.innerWrapper {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.wrapper h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.innerWrapper ul {
+  padding: 0;
+  margin: 0 0 2rem 0;
+  list-style: disc;
+}
+
+.innerWrapper li {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.buttonWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.arrowIcon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  fill: #c9c9c9;
+  left: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+}

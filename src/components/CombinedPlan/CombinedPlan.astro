@@ -4,6 +4,8 @@ import type { LanguageCode } from "../../types";
 
 import CTAButton from "../CTAButton/CTAButton.astro";
 
+import { telegramContactLink } from "../../constants";
+
 interface Props {
   locale: LanguageCode;
   title: Record<LanguageCode, string>;
@@ -22,6 +24,6 @@ const { locale = "en", title, description, button, costFull, costDiscount } = As
     <span class={styles.costFull}>${costFull}</span>
     <span class={styles.costDiscount}>${costDiscount}</span>
     <h3>{description[locale]}</h3>
-    <CTAButton text={button[locale]} href="https://t.me/di_gurrr" />
+    <CTAButton text={button[locale]} href={telegramContactLink} />
   </div>
 </section>

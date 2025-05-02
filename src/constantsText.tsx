@@ -17,22 +17,14 @@ export const CTA_Text = {
 };
 
 export const navItems = [
-  {
-    id: "information",
-    href: "#information",
-    titles: {
-      en: "Information",
-      ru: "Информация",
-    },
-  },
-  {
-    id: "services",
-    href: "#services",
-    titles: {
-      en: "Services",
-      ru: "Планы",
-    },
-  },
+  // {
+  //   id: "services",
+  //   href: "#services",
+  //   titles: {
+  //     en: "Services",
+  //     ru: "Планы",
+  //   },
+  // },
   {
     id: "whyMe",
     href: "#whyMe",
@@ -498,49 +490,160 @@ export const OnlineZoomWorkouts_Text = {
 
 export const WhyMe_Text = {
   title: {
-    en: "",
+    en: "Why do clients trust me?",
     ru: "Почему клиенты доверяют именно мне?",
   },
   list: [
     {
       title: {
-        en: "",
+        en: "I've been in your shoes",
         ru: "Была на вашем месте",
       },
       description: {
-        en: "",
+        en: "I know firsthand what it's like to struggle with an eating disorder. I lived with bulimia nervosa for several years. After overcoming it, I want to help others avoid falling into disordered eating due to harmful advice from so-called experts.",
         ru: "Я знаю не понаслышке, что такое расстройство пищевого поведения. Несколько лет я жила с нервной булимией. После того как я справилась с недугом, хочу помочь другим не впасть в РПП из-за рекомендаций горе-специалистов.",
       },
     },
     {
       title: {
-        en: "",
+        en: "Science-based approach",
         ru: "Научный подход",
       },
       description: {
-        en: "",
+        en: "From the very start of my fitness journey, I encountered harmful nutrition advice from trainers. My goal is to help you navigate the sea of information. All my recommendations are based on evidence-based medicine and scientific research.",
         ru: "С самого начала фитнес-пути я сталкивалась с мракобесными советами по питанию от тренеров. Моя задача — помочь вам разобраться в потоке информации. Все мои рекомендации основаны на доказательной медицине и научных исследованиях.",
       },
     },
     {
       title: {
-        en: "",
+        en: "Systematic approach",
         ru: "Системная работа",
       },
       description: {
-        en: "",
+        en: "My goal is to improve your quality of life not just through balanced nutrition, but also through physical activity, stress management, and harmonious relationships with those around you.",
         ru: "Моя задача — улучшить качество вашей жизни не только через сбалансированное питание, но и через физическую активность, стресс менеджмент и гармонию в отношениях с окружающими.",
       },
     },
     {
       title: {
-        en: "",
+        en: "No diets or restrictions",
         ru: "Никаких диет и запретов",
       },
       description: {
-        en: "",
+        en: "I follow a non-diet approach. Nutrition and exercise should bring joy — that’s the only way to achieve long-term results.",
         ru: "Я работаю в недиетическом подходе. Питание и тренировки должны приносить удовольствие, только тогда будет долгосрочный результат.",
       },
     },
   ],
+};
+
+export const ClientReviews_Text = {
+  title: {
+    en: "What do my clients say?",
+    ru: "Что говорят мои клиенты?",
+  },
+  list: [
+    {
+      title: {
+        en: "Olga, 38",
+        ru: "Ольга, 38 лет",
+      },
+      text: {
+        en: "Working with a nutritionist takes you to a whole new level — deeper and more mindful. The more you learn, the better life gets!",
+        ru: "Работа с нутрициологом — это выход на другой уровень: более глубокий и осознанный. И чем больше начинаешь узнавать, тем лучше становится жить!",
+      },
+    },
+    {
+      title: {
+        en: "Valeria, 28",
+        ru: "Валерия, 28 лет",
+      },
+      text: {
+        en: "I loved everything about Diana's consultation, starting from the prep stage: you get a chance to share your story and your thoughts about your body and eating. The 3-day food diary feels more like confiding in a friend than dry data collection.",
+        ru: "В консультации Дианы понравилось всё, начиная с подготовки: есть возможность подробно рассказать свою историю и переживания касательно тела/питания; трёхдневный дневник питания похож скорее на разделение с другом, нежели на сухой сбор данных.",
+      },
+    },
+    {
+      title: {
+        en: "Maria, 28",
+        ru: "Мария, 28 лет",
+      },
+      text: {
+        en: "My achievements:",
+        ru: "Мои достижения:",
+      },
+      textList: [
+        {
+          en: "I started tracking how much protein-rich food I eat!",
+          ru: "Я начала контролировать кол-во потребляемых продуктов богатых белком!",
+        },
+        {
+          en: "I've been paying more attention to my physical activity. I take short breaks for movement and am slowly but surely increasing my average weekly step count.",
+          ru: "Начала больше следить за своей физической активностью. Делаю перерывы на небольшие зарядки и медленно, но верно увеличиваю среднее значение пройденных шагов за неделю.",
+        },
+        {
+          en: "I don't go over my daily calorie target anymore.",
+          ru: "Не переедаю свою суточную норму",
+        },
+      ],
+    },
+    {
+      title: {
+        en: "Daria, 42",
+        ru: "Дарья, 42 года",
+      },
+      text: {
+        en: "I'm no longer overeating or starving. Emotional hunger has dropped significantly, and I don't eat all the sweets at once anymore. I feel lighter and my weight has started to go down.\n\nI've cut back on sweets and random snacks. I've picked up some helpful habits — like buying canned fish instead of sausages or deli meats (especially when good meat is hard to find). It's quicker and way healthier.\n\nI've also been consistent with physical activity — keeping it up!",
+        ru: "Не переедаю и не голодаю, сильно снизился эмоциональный голод, не съедаю сразу всю вкусняшку. Чувствую себя легче, вес начал снижаться.\n\nСтала есть меньше сладостей и левых перекусов. Появились полезные установки в голове - стараться меньше покупать сосиски/колбаски (потому что мясо не везде можно купить), а лучше закупить рыбные консервы. Быстро и в разы полезнее.\n\nРегулярная физ.нагрузка есть, продолжаем))",
+      },
+    },
+    {
+      title: {
+        en: "Yana, 29",
+        ru: "Яна, 29 лет",
+      },
+      text: {
+        en: "I've developed a system and a solid understanding of how a proper diet supports me — or works against me when I miss out on micro- or macronutrients.",
+        ru: "У меня сложилась система и грамотное понимание, как именно правильный рацион работает на меня или против в случае недобора микро/макроэлементов",
+      },
+    },
+  ],
+};
+
+export const MyChannel_Text = {
+  title: {
+    en: "My Telegram Channel",
+    ru: "Мой телеграм-канал",
+  },
+  list: [
+    {
+      en: "Daily tips on nutrition and training",
+      ru: "Ежедневная польза о питании и тренировках",
+    },
+    {
+      en: "Life hacks to stay healthy without losing your mind",
+      ru: "Лайфхаки, чтобы оставаться ЗОЖ и не сойти с ума",
+    },
+    {
+      en: "Debunking myths about trendy diets and signature workouts",
+      ru: "Разборы мифов о новомодных диетах и авторских тренировках",
+    },
+    {
+      en: "Balanced recipes you'll actually want to try",
+      ru: "Рецепты сбалансированных блюд, которые хочется попробовать",
+    },
+  ],
+  buttonText: {
+    en: "Follow",
+    ru: "Подписаться",
+  },
+};
+
+export const Contacts_Text = {
+  title: {
+    en: "Contact",
+    ru: "Контакты",
+  },
+  phoneNumber: "+7 985 645 50 44",
+  email: "diana.gurvich.nutri@gmail.com",
 };

@@ -1,7 +1,10 @@
 ---
 import styles from "./PlanBreakdownZoom.module.css";
 import type { LanguageCode } from "../../types";
+
 import CTAButton from "../CTAButton/CTAButton.astro";
+
+import { telegramContactLink } from "../../constants";
 
 interface PlanItemSubList {
   [key: string]: string;
@@ -109,7 +112,7 @@ const {
           })
         }
       </ul>
-      <CTAButton text={costButton[locale]} href="https://t.me/di_gurrr" />
+      <CTAButton text={costButton[locale]} href={telegramContactLink} />
     </div>
   </div>
 </section>

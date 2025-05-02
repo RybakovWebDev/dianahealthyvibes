@@ -1,6 +1,8 @@
 ---
 import styles from "./Header.module.css";
+
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher.astro";
+
 import type { LanguageCode } from "../../types";
 import { navItems } from "../../constantsText";
 
@@ -19,7 +21,9 @@ const { locale = "en" } = Astro.props;
         {
           navItems.map((item) => (
             <li>
-              <a href={item.href}>{item.titles[locale]}</a>
+              <a href={item.href} class={`nav-link ${item.id}`}>
+                {item.titles[locale]}
+              </a>
             </li>
           ))
         }
@@ -27,3 +31,27 @@ const { locale = "en" } = Astro.props;
     </nav>
   </div>
 </header>
+
+<script>
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = link.getAttribute("href");
+
+      if (targetId && targetId.startsWith("#")) {
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+          const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth",
+          });
+        }
+      }
+    });
+  });
+</script>

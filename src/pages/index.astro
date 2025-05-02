@@ -10,6 +10,10 @@ import CombinedPlan from "../components/CombinedPlan/CombinedPlan.astro";
 import SupportPlanSteps from "../components/SupportPlanSteps/SupportPlanSteps.astro";
 import PlanBreakdownZoom from "../components/PlanBreakdownZoom.astro/PlanBreakdownZoom.astro";
 import WhyMe from "../components/WhyMe/WhyMe.astro";
+import ClientReviews from "../components/ClientReviews/ClientReviews.astro";
+import MyChannel from "../components/MyChannel/MyChannel.astro";
+import CertificateSlider from "../components/CertificateSlider/CertificateSlider.astro";
+import Contacts from "../components/Contacts/Contacts.astro";
 import Welcome from "../components/Welcome.astro";
 
 import {
@@ -22,7 +26,7 @@ import {
 const locale = Astro.currentLocale || "en";
 ---
 
-<Layout title="Diana Gurvich">
+<Layout title="Diana Gurvich" locale={locale}>
   <Header locale={locale} />
   <Hero locale={locale} />
   <CanHelp locale={locale} />
@@ -82,5 +86,9 @@ const locale = Astro.currentLocale || "en";
     costOptionsList={OnlineZoomWorkouts_Text.costOptionsList}
   />
   <WhyMe locale={locale} />
+  <ClientReviews locale={locale} />
+  <MyChannel locale={locale} />
+  <CertificateSlider />
+  <Contacts locale={locale} />
   <!-- <Welcome /> -->
 </Layout>

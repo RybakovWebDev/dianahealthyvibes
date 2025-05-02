@@ -1,0 +1,195 @@
+---
+import styles from "./CertificateSlider.module.css";
+
+const certificates = [
+  {
+    src: "/public/images/certificate_1.webp",
+    alt: "Nutritionist certificate 1",
+  },
+  {
+    src: "/public/images/certificate_2.webp",
+    alt: "Nutritionist certificate 2",
+  },
+];
+---
+
+<section class={styles.wrapper}>
+  <div class={styles.innerWrapper}>
+    <div class="certificate-slider">
+      <button class="slider-arrow slider-prev" aria-label="Previous certificate">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="slider-container">
+        {
+          certificates.map((cert, index) => (
+            <div class={`slider-slide ${index === 0 ? "active" : ""}`} data-index={index}>
+              <img src={cert.src} alt={cert.alt} />
+            </div>
+          ))
+        }
+      </div>
+
+      <button class="slider-arrow slider-next" aria-label="Next certificate">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .certificate-slider {
+    position: relative;
+    width: 100%;
+    max-width: 65rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .slider-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .slider-slide {
+    position: absolute;
+    height: 40rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+  }
+
+  .slider-slide.active {
+    opacity: 1;
+    position: relative;
+  }
+
+  .slider-arrow {
+    background: var(--color-background);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: absolute;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .slider-arrow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .slider-prev {
+    left: -1.5rem;
+  }
+
+  .slider-next {
+    right: -1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .slider-prev {
+      left: 0.5rem;
+    }
+
+    .slider-next {
+      right: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".slider-slide");
+    const prevBtn = document.querySelector(".slider-prev") as HTMLButtonElement;
+    const nextBtn = document.querySelector(".slider-next") as HTMLButtonElement;
+
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    const slideCount = slides.length;
+    let currentIndex = 0;
+
+    const showSlide = (index: number) => {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+
+      slides[index].classList.add("active");
+    };
+
+    const updateButtonState = () => {
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === slideCount - 1;
+
+      prevBtn.style.opacity = currentIndex === 0 ? "0" : "1";
+      nextBtn.style.opacity = currentIndex === slideCount - 1 ? "0" : "1";
+    };
+
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showSlide(currentIndex);
+        updateButtonState();
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex < slideCount - 1) {
+        currentIndex++;
+        showSlide(currentIndex);
+        updateButtonState();
+      }
+    });
+
+    updateButtonState();
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft" && currentIndex > 0) {
+        currentIndex--;
+        showSlide(currentIndex);
+        updateButtonState();
+      } else if (e.key === "ArrowRight" && currentIndex < slideCount - 1) {
+        currentIndex++;
+        showSlide(currentIndex);
+        updateButtonState();
+      }
+    });
+  });
+</script>

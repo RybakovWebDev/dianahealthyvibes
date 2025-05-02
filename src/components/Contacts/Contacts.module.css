@@ -1,0 +1,47 @@
+.wrapper {
+  padding: 4.5rem 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-background-accent);
+}
+
+.innerWrapper {
+  height: 100%;
+  width: 56.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.innerWrapper h2 {
+  margin: 0 0 2rem 0;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.innerWrapper span {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.innerWrapper ul {
+  padding: 0;
+  margin: 2rem 0 0 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.innerWrapper svg {
+  height: 3rem;
+  width: 3rem;
+  fill: var(--color-accent);
+}
+
+.innerWrapper a {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.innerWrapper a:hover {
+  transform: scale(1.1);
+}
