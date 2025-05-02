@@ -53,5 +53,41 @@
   height: 140%;
   object-fit: cover;
   transform: translate(30px, -70px);
-  /* transform: translateY(-30px); */
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 4rem 0 0 0;
+    height: 100%;
+  }
+
+  .innerWrapper {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .textWrapper {
+    padding: 0 2rem 0 2rem;
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .textWrapper h1 {
+    font-size: clamp(18px, 7vw, 36px);
+  }
+
+  .imageContainer {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100vw;
+    height: 400px;
+    clip-path: none;
+  }
+
+  .heroImage {
+    transform: none;
+    height: 100%;
+  }
 }

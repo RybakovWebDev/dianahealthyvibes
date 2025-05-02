@@ -30,3 +30,26 @@
 .wrapper li {
   font-size: 24px;
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 4.5rem 1rem;
+  }
+
+  .wrapper h2 {
+    font-size: clamp(18px, 10vw, 42px);
+  }
+
+  .innerWrapper {
+    gap: 2rem;
+  }
+
+  .wrapper ul {
+    padding: 0 2rem;
+  }
+
+  .wrapper li {
+    padding: 1rem 0;
+    font-size: clamp(18px, 6vw, 24px);
+  }
+}

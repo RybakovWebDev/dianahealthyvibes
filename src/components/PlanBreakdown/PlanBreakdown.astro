@@ -84,6 +84,12 @@ const { locale = "en", accentBackground = false, title, subtitle, list } = Astro
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+
+  @media (max-width: 768px) {
+    .panel {
+      padding: 0 0.5rem;
+    }
+  }
 </style>
 
 <script>

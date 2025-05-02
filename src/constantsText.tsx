@@ -102,7 +102,7 @@ export const NutritionSupport_Text = {
     ru: "Сопровождение по питанию",
   },
   subtitle: {
-    en: "What you'll get",
+    en: "What can you expect?",
     ru: "Что вы получите?",
   },
   list: [

@@ -34,6 +34,7 @@
 }
 
 .mainList {
+  padding: 0;
   list-style: none;
   flex: 2;
 }
@@ -94,4 +95,31 @@
 :global(.panel) p {
   padding: 0 10% 0 0;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 2.5rem 1rem;
+  }
+
+  .innerWrapper {
+    flex-direction: column;
+  }
+
+  .planDescription p {
+    margin: 0 0 2rem 0;
+  }
+
+  .accordionButton {
+    padding: 0;
+  }
+
+  .accordionButton h4 {
+    padding: 0 0 0 0.5rem;
+    font-size: clamp(18px, 6vw, 22px);
+  }
+
+  .toggleIcon {
+    margin: 0 0 0 1rem;
+  }
 }
