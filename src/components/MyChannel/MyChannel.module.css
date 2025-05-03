@@ -45,3 +45,20 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 2rem 1rem;
+  }
+
+  .wrapper ul {
+    padding: 0 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+  }
+
+  .arrowIcon {
+    left: -80px;
+  }
+}

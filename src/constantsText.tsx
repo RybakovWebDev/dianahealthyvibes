@@ -1,3 +1,10 @@
+export const MetaDescription_Text = {
+  description: {
+    en: "You deserve to be strong and healthy!",
+    ru: "Вы заслуживаете быть сильными и здоровыми!",
+  },
+};
+
 export const Hero_Text = {
   nameText: {
     en: "Diana Gurvich, certified fitness coach and nutritionist",

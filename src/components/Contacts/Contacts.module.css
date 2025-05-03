@@ -45,3 +45,30 @@
 .innerWrapper a:hover {
   transform: scale(1.1);
 }
+
+.phoneLink,
+.emailLink {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  color: inherit;
+}
+
+@media (max-width: 925px) {
+  .wrapper {
+    padding: 2rem 2rem 4rem 2rem;
+  }
+
+  .innerWrapper {
+    width: 100%;
+  }
+
+  .innerWrapper h2 {
+    font-size: clamp(36px, 16vw, 42px);
+  }
+
+  .phoneLink,
+  .emailLink {
+    word-break: break-all;
+  }
+}

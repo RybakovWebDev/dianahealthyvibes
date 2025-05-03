@@ -55,3 +55,15 @@
 .textWrapper p {
   font-size: 18px;
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 2rem 1rem;
+  }
+
+  .wrapper ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+}

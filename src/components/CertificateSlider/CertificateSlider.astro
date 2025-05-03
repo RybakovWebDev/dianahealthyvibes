@@ -1,13 +1,18 @@
 ---
 import styles from "./CertificateSlider.module.css";
 
+import { Image } from "astro:assets";
+
+import certificate1 from "../../../public/images/certificate_1.webp";
+import certificate2 from "../../../public/images/certificate_2.webp";
+
 const certificates = [
   {
-    src: "/public/images/certificate_1.webp",
+    src: certificate1,
     alt: "Nutritionist certificate 1",
   },
   {
-    src: "/public/images/certificate_2.webp",
+    src: certificate2,
     alt: "Nutritionist certificate 2",
   },
 ];
@@ -36,7 +41,7 @@ const certificates = [
         {
           certificates.map((cert, index) => (
             <div class={`slider-slide ${index === 0 ? "active" : ""}`} data-index={index}>
-              <img src={cert.src} alt={cert.alt} />
+              <Image src={cert.src} alt={cert.alt} loading="lazy" />
             </div>
           ))
         }
@@ -68,6 +73,10 @@ const certificates = [
     max-width: 65rem;
     display: flex;
     align-items: center;
+  }
+
+  .certificate-slider button {
+    color: var(--color-text);
   }
 
   .slider-container {
@@ -124,13 +133,45 @@ const certificates = [
     right: -1.5rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
+    .slider-slide {
+      height: 100%;
+      min-height: 65vw;
+    }
+
+    .slider-slide.active {
+      position: absolute;
+    }
+
+    .slider-container {
+      min-height: 65vw;
+    }
+
+    .slider-slide img {
+      object-fit: contain;
+      max-height: 100%;
+      width: auto;
+    }
+
     .slider-prev {
       left: 0.5rem;
     }
 
     .slider-next {
       right: 0.5rem;
+    }
+
+    .slider-arrow {
+      top: auto;
+      bottom: -4rem;
+    }
+
+    .slider-prev {
+      left: calc(50% - 4rem);
+    }
+
+    .slider-next {
+      right: calc(50% - 4rem);
     }
   }
 </style>
@@ -158,8 +199,8 @@ const certificates = [
       prevBtn.disabled = currentIndex === 0;
       nextBtn.disabled = currentIndex === slideCount - 1;
 
-      prevBtn.style.opacity = currentIndex === 0 ? "0" : "1";
-      nextBtn.style.opacity = currentIndex === slideCount - 1 ? "0" : "1";
+      prevBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
+      nextBtn.style.opacity = currentIndex === slideCount - 1 ? "0.3" : "1";
     };
 
     prevBtn.addEventListener("click", () => {

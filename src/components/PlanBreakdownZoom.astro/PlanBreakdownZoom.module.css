@@ -70,6 +70,7 @@
 .accordionButton h4 {
   font-size: 22px;
   font-weight: 700;
+  color: var(--color-text);
 }
 
 .toggleIcon {
@@ -152,4 +153,59 @@
 
 .costWrapper li span:last-child {
   font-size: 26px;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 2.5rem 1rem;
+  }
+
+  .planWrapper {
+    flex-direction: column;
+  }
+
+  .planDescription p {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .planWrapper ul {
+    padding: 0;
+    margin: 2rem 0 0 0;
+  }
+
+  .subList li {
+    margin: 0 0 1rem 0.5rem;
+  }
+
+  .accordionButton {
+    padding: 0;
+  }
+
+  .accordionButton h4 {
+    padding: 0 0 0 0.5rem;
+    font-size: clamp(18px, 6vw, 22px);
+  }
+
+  .toggleIcon {
+    margin: 0 0 0 1rem;
+  }
+
+  .costDuration {
+    width: 100%;
+  }
+
+  .costWrapper ul {
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+
+  .costWrapper li {
+    padding: 1rem 0;
+    gap: 2rem;
+  }
+
+  .costWrapper li span:first-child {
+    font-size: clamp(20px, 7vw, 26px);
+  }
 }

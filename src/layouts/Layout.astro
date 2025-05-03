@@ -1,7 +1,10 @@
 ---
+import type { LanguageCode } from "../types";
+import { MetaDescription_Text } from "../constantsText";
+
 interface Props {
   title: string;
-  locale: string;
+  locale: LanguageCode;
 }
 
 const { title, locale } = Astro.props;
@@ -13,10 +16,11 @@ const { title, locale } = Astro.props;
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={MetaDescription_Text.description[locale]} />
     <title>{title}</title>
   </head>
   <body>

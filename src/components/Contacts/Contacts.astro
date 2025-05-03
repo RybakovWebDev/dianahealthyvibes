@@ -15,8 +15,12 @@ const { locale = "en" } = Astro.props;
 <section id="contacts" class={styles.wrapper}>
   <div class={styles.innerWrapper}>
     <h2>{Contacts_Text.title[locale]}</h2>
-    <span>{Contacts_Text.phoneNumber}</span>
-    <span>{Contacts_Text.email}</span>
+    <a href="tel:+79856455044" class={styles.phoneLink}>
+      {Contacts_Text.phoneNumber}
+    </a>
+    <a href="mailto:diana.gurvich.nutri@gmail.com" class={styles.emailLink}>
+      {Contacts_Text.email}
+    </a>
     <ul>
       {
         socialMediaLinks.map((socialMedia) => (

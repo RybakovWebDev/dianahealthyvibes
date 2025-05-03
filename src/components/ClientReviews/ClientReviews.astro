@@ -29,9 +29,9 @@ const { locale = "en" } = Astro.props;
                 <h3>{review.title[locale]}</h3>
                 {review.text && (
                   <div class={styles.reviewText}>
-                    {review.text[locale].split("${(<br />)}").map((paragraph) => (
-                      <p>{paragraph}</p>
-                    ))}
+                    {review.text[locale]
+                      .split("\n")
+                      .map((paragraph, index) => paragraph.trim() && <p>{paragraph}</p>)}
                   </div>
                 )}
                 {review.textList && (
@@ -77,6 +77,7 @@ const { locale = "en" } = Astro.props;
   @media (max-width: 768px) {
     .embla-slide {
       padding: 0 0.75rem;
+      max-width: 100%;
     }
   }
 </style>

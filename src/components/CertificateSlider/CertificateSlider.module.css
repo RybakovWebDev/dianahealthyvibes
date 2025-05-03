@@ -6,12 +6,23 @@
 }
 
 .innerWrapper {
+  padding: 0 2rem;
+  margin: 0 auto;
   height: 50rem;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 960px) {
+  .wrapper {
+    padding: 0rem 1rem;
+  }
+
+  .innerWrapper {
+    padding: 4rem 0;
+    height: 100%;
+  }
 }

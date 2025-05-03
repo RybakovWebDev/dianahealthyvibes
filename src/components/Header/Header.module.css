@@ -9,6 +9,7 @@
 }
 
 .innerWrapper {
+  height: 100%;
   width: 100%;
   max-width: 1200px;
   display: flex;
@@ -30,6 +31,7 @@
 }
 
 .navList a {
+  display: flex;
   text-decoration: none;
   color: #333;
   font-size: 14px;
@@ -44,15 +46,11 @@
 @media (max-width: 768px) {
   .wrapper {
     padding: 0 0.5rem;
+    width: 100%;
   }
 
   .separator {
     margin: 0 0 0 0.5rem;
-  }
-
-  .innerWrapper button {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 
   .navList a {

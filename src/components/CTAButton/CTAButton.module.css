@@ -6,9 +6,9 @@
   justify-content: center;
   border-radius: 50px;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  color: var(--color-text-light);
+  color: var(--color-text);
   background-color: var(--color-accent);
   transition: background-color 100ms ease-in-out;
   text-decoration: none;
@@ -22,6 +22,6 @@
 
 @media (max-width: 768px) {
   .button {
-    font-size: clamp(12px, 4vw, 18px);
+    font-size: clamp(12px, 4vw, 20px);
   }
 }

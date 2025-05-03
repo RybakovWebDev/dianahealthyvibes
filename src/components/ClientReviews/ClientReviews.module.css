@@ -17,6 +17,7 @@
 .wrapper h2 {
   font-size: 42px;
   font-weight: 700;
+  text-align: center;
 }
 
 .review {
@@ -52,9 +53,13 @@
 }
 
 @media (max-width: 768px) {
+  .wrapper h2 {
+    padding: 0 1rem;
+  }
+
   .review {
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
     height: auto;
-    min-height: 22rem;
+    min-height: 27rem;
   }
 }
