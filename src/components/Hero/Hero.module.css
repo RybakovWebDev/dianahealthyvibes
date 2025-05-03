@@ -28,12 +28,12 @@
   z-index: 2;
 }
 
-.textWrapper h1 {
+.textWrapper h2 {
   font-size: 36px;
   font-weight: 700;
 }
 
-.textWrapper h2 {
+.textWrapper h1 {
   font-weight: 400;
 }
 
