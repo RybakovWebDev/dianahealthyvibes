@@ -28,6 +28,7 @@
 
 .costFull {
   font-size: 18px;
+  text-decoration: line-through;
 }
 
 .costDiscount {
