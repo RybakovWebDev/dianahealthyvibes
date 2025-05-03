@@ -15,7 +15,7 @@ const { locale = "en" } = Astro.props;
     <!-- <img src="/public/images/whyme.webp" alt="Diana behind a laptop" /> -->
     <div class={styles.infoWrapper}>
       <h2>{WhyMe_Text.title[locale]}</h2>
-      <ul>
+      <ul data-animate="why-me">
         {
           WhyMe_Text.list.map((l, i) => {
             return (
@@ -33,3 +33,12 @@ const { locale = "en" } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  @import "../../styles/animations.css";
+</style>
+
+<script>
+  import { initListAnimation } from "../../scripts/animateListStagger";
+  initListAnimation({ selector: '[data-animate="why-me"]' });
+</script>

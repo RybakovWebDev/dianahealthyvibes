@@ -1,8 +1,10 @@
 ---
 import styles from "./ConsultationInvitation.module.css";
 import type { LanguageCode } from "../../types";
-import { ConsultationInvitation_Text } from "../../constantsText";
+
 import CTAButton from "../CTAButton/CTAButton.astro";
+
+import { ConsultationInvitation_Text } from "../../constantsText";
 
 interface Props {
   locale: LanguageCode;
@@ -14,7 +16,7 @@ const { locale = "en" } = Astro.props;
 <section class={styles.wrapper}>
   <div class={styles.innerWrapper}>
     <h2>{ConsultationInvitation_Text.headline[locale]}!</h2>
-    <ul>
+    <ul data-animate="consultation-invitation">
       {
         ConsultationInvitation_Text.list.map((l) => {
           return <li>{l[locale]}</li>;
@@ -27,3 +29,12 @@ const { locale = "en" } = Astro.props;
     />
   </div>
 </section>
+
+<style>
+  @import "../../styles/animations.css";
+</style>
+
+<script>
+  import { initListAnimation } from "../../scripts/animateListStagger";
+  initListAnimation({ selector: '[data-animate="consultation-invitation"]' });
+</script>

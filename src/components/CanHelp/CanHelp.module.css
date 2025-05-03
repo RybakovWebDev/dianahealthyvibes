@@ -62,4 +62,8 @@
     flex-direction: column;
     row-gap: 2rem;
   }
+
+  .wrapper li {
+    gap: 1rem;
+  }
 }

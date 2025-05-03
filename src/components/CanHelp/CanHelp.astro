@@ -14,7 +14,7 @@ const { locale = "en" } = Astro.props;
 <section class={styles.wrapper}>
   <div class={styles.innerWrapper}>
     <h2>{CanHelp_Text.headline[locale]}</h2>
-    <ul>
+    <ul data-animate="can-help">
       {
         CanHelp_Text.list.map((l) => {
           return (
@@ -40,3 +40,12 @@ const { locale = "en" } = Astro.props;
     </ul>
   </div>
 </section>
+
+<style>
+  @import "../../styles/animations.css";
+</style>
+
+<script>
+  import { initListAnimation } from "../../scripts/animateListStagger";
+  initListAnimation({ staggerDelay: 0.1, selector: '[data-animate="can-help"]' });
+</script>

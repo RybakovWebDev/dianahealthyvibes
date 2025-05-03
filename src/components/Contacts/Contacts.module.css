@@ -37,12 +37,12 @@
   fill: var(--color-accent);
 }
 
-.innerWrapper a {
+.innerWrapper li a {
   display: block;
   transition: transform 0.2s ease;
 }
 
-.innerWrapper a:hover {
+.innerWrapper li a:hover {
   transform: scale(1.1);
 }
 

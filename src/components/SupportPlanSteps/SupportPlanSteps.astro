@@ -14,7 +14,7 @@ const { locale = "en" } = Astro.props;
 <section class={styles.wrapper}>
   <div class={styles.innerWrapper}>
     <h2>{SupportPlanSteps_Text.headline[locale]}</h2>
-    <ul>
+    <ul data-animate="support-plan-steps">
       {
         SupportPlanSteps_Text.list.map((l, i) => {
           return (
@@ -31,3 +31,12 @@ const { locale = "en" } = Astro.props;
     </ul>
   </div>
 </section>
+
+<style>
+  @import "../../styles/animations.css";
+</style>
+
+<script>
+  import { initListAnimation } from "../../scripts/animateListStagger";
+  initListAnimation({ selector: '[data-animate="support-plan-steps"]' });
+</script>

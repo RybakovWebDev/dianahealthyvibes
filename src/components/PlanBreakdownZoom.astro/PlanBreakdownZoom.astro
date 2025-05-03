@@ -52,7 +52,7 @@ const {
       <div class={styles.planDescription}>
         <p>{subtitle[locale]}</p>
       </div>
-      <ul class={styles.mainList}>
+      <ul data-animate="plan-breakdown-zoom" class={styles.mainList}>
         {
           list.map((item, index) => {
             const headerId = `accordion-header-${index}`;
@@ -118,6 +118,7 @@ const {
 </section>
 
 <style>
+  @import "../../styles/animations.css";
   .accordion {
     width: 100%;
     cursor: pointer;
@@ -135,3 +136,12 @@ const {
     transition: max-height 0.2s ease-out;
   }
 </style>
+
+<script>
+  import { initListAnimation } from "../../scripts/animateListStagger";
+  initListAnimation({
+    staggerDelay: 0.3,
+    threshold: 0.7,
+    selector: '[data-animate="plan-breakdown-zoom"]',
+  });
+</script>

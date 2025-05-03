@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 4.5rem 0;
+  padding: 4.5rem 0 0 0;
   display: flex;
   justify-content: center;
   background-color: var(--color-background-accent);
@@ -8,7 +8,6 @@
 .innerWrapper {
   padding: 0 2rem;
   margin: 0 auto;
-  height: 50rem;
   width: 100%;
   max-width: 1200px;
   display: flex;

@@ -18,7 +18,7 @@ const { locale = "en" } = Astro.props;
 <section class={styles.wrapper}>
   <div class={styles.innerWrapper}>
     <h3>{MyChannel_Text.title[locale]}</h3>
-    <ul>
+    <ul data-animate="my-channel">
       {
         MyChannel_Text.list.map((l) => {
           return (
@@ -44,3 +44,12 @@ const { locale = "en" } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  @import "../../styles/animations.css";
+</style>
+
+<script>
+  import { initListAnimation } from "../../scripts/animateListStagger";
+  initListAnimation({ selector: '[data-animate="my-channel"]' });
+</script>
