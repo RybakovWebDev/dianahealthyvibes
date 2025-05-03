@@ -1,6 +1,10 @@
 ---
+import { Image } from "astro:assets";
+
 import styles from "./Hero.module.css";
 import type { LanguageCode } from "../../types";
+
+import heroBkg from "../../../public/images/heroBkg.webp";
 import { Hero_Text } from "../../constantsText";
 
 interface Props {
@@ -8,7 +12,6 @@ interface Props {
 }
 
 const { locale = "en" } = Astro.props;
-console.log(locale);
 ---
 
 <section class={styles.wrapper}>
@@ -18,7 +21,16 @@ console.log(locale);
       <h2>{Hero_Text.nameText[locale]}</h2>
     </div>
     <div class={styles.imageContainer}>
-      <img src="/images/heroBkg.webp" alt="" class={styles.heroImage} />
+      <Image
+        src={heroBkg}
+        alt="Diana"
+        loading={"eager"}
+        class={styles.heroImage}
+        width={1200}
+        height={200}
+        format="webp"
+        quality={80}
+      />
     </div>
   </div>
 </section>
