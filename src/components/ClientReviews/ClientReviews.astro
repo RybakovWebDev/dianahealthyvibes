@@ -18,32 +18,32 @@ const { locale = "en" } = Astro.props;
     <div class="embla-carousel" tabindex="0" role="region" aria-label="Client reviews">
       <ul class="embla-container">
         {
-          ClientReviews_Text.list.map((review, index) => (
-            <li
-              class="embla-slide"
-              tabindex="0"
-              role="tabpanel"
-              aria-label={`Review ${index + 1} of ${ClientReviews_Text.list.length}`}
-            >
-              <div class={styles.review}>
-                <h3>{review.title[locale]}</h3>
-                {review.text && (
-                  <div class={styles.reviewText}>
-                    {review.text[locale]
-                      .split("\n")
-                      .map((paragraph, index) => paragraph.trim() && <p>{paragraph}</p>)}
-                  </div>
-                )}
-                {review.textList && (
-                  <ul class={styles.reviewList}>
-                    {review.textList.map((item, i) => (
-                      <li>{item[locale]}</li>
+          ClientReviews_Text.list.map((review, index) => {
+            return (
+              <li
+                class="embla-slide"
+                tabindex="0"
+                aria-label={`Review ${index + 1} of ${ClientReviews_Text.list.length}`}
+              >
+                <div class={styles.review}>
+                  <h3>{review.title[locale]}</h3>
+                  {review.text[locale]
+                    .split("\n")
+                    .filter((paragraph) => paragraph.trim())
+                    .map((paragraph) => (
+                      <p>{paragraph}</p>
                     ))}
-                  </ul>
-                )}
-              </div>
-            </li>
-          ))
+                  {review.textList && (
+                    <ul class={styles.reviewList}>
+                      {review.textList.map((item, i) => (
+                        <li>{item[locale]}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </li>
+            );
+          })
         }
       </ul>
     </div>
